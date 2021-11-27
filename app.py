@@ -1,6 +1,7 @@
 import os
 import uuid
 
+from werkzeug.utils import secure_filename
 from flask import Flask, render_template, session, request, redirect, url_for, jsonify
 
 # Create app and set the directory where we store web resources
@@ -11,7 +12,7 @@ app = Flask(
     template_folder="www",
     instance_relative_config=True
 )
-app.config['UPLOAD_FOLDER'] = 'tmp-upload'
+app.config['UPLOAD_FOLDER'] = 'tmp'
 app.config['MAX_CONTENT_PATH'] = 33554432 # 32 MB = 1024 * 1024 * 32
 
 
@@ -34,10 +35,12 @@ def root():
 # Upload File
 @app.route('/upload', methods = ['POST'])
 def upload_file():
-   if request.method == 'POST':
-      f = request.files['file']
-      f.save(f.filename)
-      return 'file uploaded successfully'
+    file = request.files['a_file']
+    properties = 
+
+    file.save(f"./files/{secure_filename(file.filename)}")
+
+
 
 # Maintain good database connection hygiene
 # @app.before_request
