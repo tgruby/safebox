@@ -1,0 +1,9 @@
+html,
+body {
+    background-color: #2E2E2E;
+    color: darkgreen;
+    font-family: 'Lucida Console', Courier, monospace;
+    font-size: 1em; /* 14px/16=0.875em */
+    zoom: 100%;
+    text-align:center;
+}
